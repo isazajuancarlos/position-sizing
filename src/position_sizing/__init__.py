@@ -157,7 +157,12 @@ class Sizing:
             Rejection.INSUFFICIENT_BALANCE: "saldo insuficiente para la posición",
         }.get(self.rejection, str(self.rejection))
         if self.min_balance_required is not None:
-            return f"{base}; harían falta {self.min_balance_required} de saldo"
+            # Se muestra con dos decimales por ser una cifra de dinero: el valor
+            # crudo puede salir como "5000" o como "5000.0000000", según de qué
+            # operación decimal venga, y ninguna de las dos se lee como un
+            # importe. El campo `min_balance_required` conserva la precisión
+            # completa; esto solo afecta al texto del log.
+            return f"{base}; harían falta {self.min_balance_required:.2f} de saldo"
         return base
 
     def __bool__(self) -> bool:

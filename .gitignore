@@ -17,3 +17,4 @@ conversaciones/
 
 # Transcripciones de sesión (no son parte del producto)
 conversaciones/
+dist/

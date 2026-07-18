@@ -216,6 +216,16 @@ class TestResultado:
         assert "arriesga más" in r.reason
         assert "harían falta" in r.reason
 
+    def test_el_saldo_necesario_se_lee_como_dinero(self):
+        # El texto va a un log que lee una persona, y "5000" o "5000.0000000"
+        # no se leen como un importe. Se fija el formato porque el README y el
+        # artículo publicado citan esta salida literalmente.
+        spec = MarketSpec(amount_step=D("1"), contract_size=D("0.01"), min_amount=D("1"))
+        r = size_for_risk(balance=D("500"), risk_fraction=D("0.01"),
+                          entry=D("50000"), stop=D("45000"), spec=spec)
+        assert not r.ok
+        assert "harían falta 5000.00 de saldo" in r.reason
+
     def test_al_dimensionar_el_motivo_trae_las_cifras(self):
         spec = MarketSpec(amount_step=D("0.001"))
         r = size_for_risk(balance=D("10000"), risk_fraction=D("0.01"),
