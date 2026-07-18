@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "position-sizing"
+version = "0.1.0"
+description = "Traduce un presupuesto de riesgo a una cantidad que el exchange acepte, sin pasarse nunca del riesgo: redondeo hacia abajo, mínimos y nocional del mercado, comisiones y contract size."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Juan Carlos Isaza Arenas", email = "isazajuancarlos@gmail.com" }]
+keywords = ["trading", "risk", "position-sizing", "ccxt", "exchange", "backtest",
+            "risk-management", "order-size", "decimal"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+# Sin dependencias. El cálculo es aritmética decimal pura; ccxt solo hace falta
+# si se usa el adaptador `spec_from_ccxt`, que recibe un dict corriente.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/isazajuancarlos/position-sizing"
+Issues = "https://github.com/isazajuancarlos/position-sizing/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

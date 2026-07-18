@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# Local
+*.log
+.env
+
+# Transcripciones de sesión (no son parte del producto)
+conversaciones/
+
+# Transcripciones de sesión (no son parte del producto)
+conversaciones/
