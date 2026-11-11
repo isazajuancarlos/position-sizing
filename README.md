@@ -24,5 +24,5 @@ Ahí están la documentación, las mediciones y la forma de pedirlo.
 
 ---
 
-*position-sizing* — © 2026 Juan Carlos Isaza Arenas. Licencia **Apache-2.0**.
+*position-sizing* — © 2026 Juan Carlos Isaza. Licencia **Apache-2.0**.
 La licencia no cambia: lo que cambia es por dónde se entrega el código.
